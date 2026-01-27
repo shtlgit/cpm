@@ -1,0 +1,242 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "date",
+      "semantic_type": null,
+      "lib/deduplicated-name": "report_date",
+      "lib/original-name": "report_date",
+      "name": "report_date",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "report_date",
+        {
+          "base-type": "type/Date"
+        }
+      ],
+      "effective_type": "type/Date",
+      "display_name": "report_date",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 1,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/DateTime": {
+            "earliest": "2025-09-15",
+            "latest": "2025-09-15"
+          }
+        }
+      },
+      "base_type": "type/Date"
+    },
+    {
+      "database_type": "varchar",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Магазин",
+      "lib/original-name": "Магазин",
+      "name": "Магазин",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Магазин",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Магазин",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 5,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 22.4
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Выручка MTD,KZT",
+      "lib/original-name": "Выручка MTD,KZT",
+      "name": "Выручка MTD,KZT",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Выручка MTD,KZT",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "Выручка MTD,KZT",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 5,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 41378675,
+            "q1": 43649237,
+            "q3": 55436142.5,
+            "max": 74340161,
+            "sd": 13377134.263262188,
+            "avg": 50929012.8
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Лучшие магазины по Выручке MTD.",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:42.931101Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:42.931101Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "actual_date": {
+          "id": "92b13a3d-8286-4d67-8724-6ec9ecbcafb5",
+          "default": null,
+          "dimension": [
+            "field",
+            37152,
+            null
+          ],
+          "widget-type": "date/single",
+          "display-name": "Actual Date",
+          "type": "dimension",
+          "name": "actual_date",
+          "required": false
+        }
+      },
+      "query": "select\n\treport_date,\n\tshop_name as \"Магазин\",\n\tsum(profit_month_to_date) as \"Выручка MTD,KZT\"\nfrom\n\treplset.mv_combined_all_stores_data\nwhere\n\t{{actual_date}}\ngroup by\n\treport_date,\n\tshop_name\nhaving\n\tsum(profit_month_to_date) is not null\norder by\n\t3 desc\nlimit 5\n;"
+    }
+  },
+  "id": 248,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "ED6BTjZu8yuFNERgj7zte",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:43.028279Z"
+  },
+  "visualization_settings": {
+    "graph.show_values": true,
+    "graph.series_order_dimension": null,
+    "graph.x_axis.axis_enabled": "compact",
+    "graph.x_axis.title_text": "5 лучших по выручке за месяц",
+    "graph.label_value_frequency": "all",
+    "graph.metrics": [
+      "Выручка MTD,KZT"
+    ],
+    "graph.series_order": null,
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "Магазин"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [
+    {
+      "id": "92b13a3d-8286-4d67-8724-6ec9ecbcafb5",
+      "type": "date/single",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "actual_date"
+        ]
+      ],
+      "name": "Actual Date",
+      "slug": "actual_date",
+      "required": false,
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:42.931101Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

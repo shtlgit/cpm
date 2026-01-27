@@ -1,0 +1,163 @@
+{
+  "cache_invalidated_at": "2025-10-04T10:48:38.677521Z",
+  "description": null,
+  "archived": false,
+  "view_count": 278,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Средняя Выручка MTD, KZT",
+      "lib/original-name": "Средняя Выручка MTD, KZT",
+      "name": "Средняя Выручка MTD, KZT",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Средняя Выручка MTD, KZT",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Средняя Выручка MTD, KZT",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 1,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 11.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Средняя Выручка MTD, KZT",
+  "last_query_start": "2025-12-23T12:34:37.009905Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T12:34:37.159802Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 188.8146964856230032,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-10-04T10:48:38.665305Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "actual_date": {
+          "dimension": [
+            "field",
+            37152,
+            null
+          ],
+          "widget-type": "date/range",
+          "display-name": "Actual Date",
+          "type": "dimension",
+          "name": "actual_date",
+          "id": "a558ce87-c419-4449-b4d6-8596ad3cf1e5",
+          "default": null
+        }
+      },
+      "query": "select REPLACE(REPLACE(REPLACE(\n        TRIM(TO_CHAR(sum(profit_month_to_date)/(SUM(profitable_days_in_month)), '999G999G999G999')), \n        '.', ' '), \n        ',', ' '), \n        ' ', ' ') || ' ₸' AS \"Средняя Выручка MTD, KZT\"\nfrom replset.mv_combined_all_stores_data\nwhere {{actual_date}}\ngroup by report_date"
+    }
+  },
+  "id": 144,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "scalar",
+  "archived_directly": false,
+  "entity_id": "yJpO7yRJUlSWl2wHuEj3C",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-10-04T10:48:38.696727Z"
+  },
+  "visualization_settings": {
+    "table.cell_column": "Выручка, KZT",
+    "table.pivot_column": "Выручка MTD, KZT"
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.4 (aeaacd0)",
+  "parameters": [
+    {
+      "id": "a558ce87-c419-4449-b4d6-8596ad3cf1e5",
+      "type": "date/range",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "actual_date"
+        ]
+      ],
+      "name": "Actual Date",
+      "slug": "actual_date",
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-09-25T20:57:58.295988Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

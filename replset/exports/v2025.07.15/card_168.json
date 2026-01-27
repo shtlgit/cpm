@@ -1,0 +1,236 @@
+{
+  "cache_invalidated_at": "2025-10-23T08:19:33.632392Z",
+  "description": null,
+  "archived": false,
+  "view_count": 52,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "hour_opened",
+      "lib/original-name": "hour_opened",
+      "name": "hour_opened",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "hour_opened",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "hour_opened",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 18,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 6.0,
+            "q1": 10.0,
+            "q3": 19.0,
+            "max": 23.0,
+            "sd": 5.338539126015656,
+            "avg": 14.5
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "float8",
+      "semantic_type": null,
+      "lib/deduplicated-name": "average_revenue_per_day",
+      "lib/original-name": "average_revenue_per_day",
+      "name": "average_revenue_per_day",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "average_revenue_per_day",
+        {
+          "base-type": "type/Float"
+        }
+      ],
+      "effective_type": "type/Float",
+      "display_name": "average_revenue_per_day",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 18,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 166.9,
+            "q1": 1401508.418539326,
+            "q3": 3655600.518370786,
+            "max": 4499108.905505618,
+            "sd": 1533997.218292205,
+            "avg": 2500576.6422538534
+          }
+        }
+      },
+      "base_type": "type/Float"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Средняя выручка в день по часам",
+  "last_query_start": "2025-12-23T08:00:07.547264Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:07.550641Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 449.1616161616161616,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-10-23T08:19:33.621824Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "month_of_year": {
+          "type": "dimension",
+          "name": "month_of_year",
+          "id": "f17c5633-0803-4407-990d-a43ba4c72892",
+          "widget-type": "string/=",
+          "display-name": "Month Of Year",
+          "dimension": [
+            "field",
+            54624,
+            null
+          ]
+        },
+        "shop_name": {
+          "widget-type": "string/=",
+          "dimension": [
+            "field",
+            54620,
+            null
+          ],
+          "display-name": "Shop Name",
+          "name": "shop_name",
+          "id": "1a80ceb0-b02d-44c2-8533-602ceafe91d4",
+          "type": "dimension",
+          "default": null
+        }
+      },
+      "query": "select hour_opened, \n\tsum(check_sum)/count(distinct report_date) as average_revenue_per_day \nfrom replset.mv_service_time_by_receipts_detailed\nwhere {{month_of_year}} and \n\t{{shop_name}}\ngroup by hour_opened\n\n--\t"
+    }
+  },
+  "id": 168,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "UYtnXRxJ4lCCteiDgjzl2",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-10-23T08:19:33.672198Z"
+  },
+  "visualization_settings": {
+    "graph.y_axis.title_text": "Количество чеков",
+    "graph.show_values": true,
+    "graph.series_order_dimension": null,
+    "graph.x_axis.axis_enabled": true,
+    "graph.x_axis.title_text": "час открытия чека",
+    "graph.metrics": [
+      "average_revenue_per_day"
+    ],
+    "graph.series_order": null,
+    "graph.x_axis.scale": "linear",
+    "graph.dimensions": [
+      "hour_opened"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [
+    {
+      "id": "f17c5633-0803-4407-990d-a43ba4c72892",
+      "type": "string/=",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "month_of_year"
+        ]
+      ],
+      "name": "Month Of Year",
+      "slug": "month_of_year",
+      "isMultiSelect": true
+    },
+    {
+      "id": "1a80ceb0-b02d-44c2-8533-602ceafe91d4",
+      "type": "string/=",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "shop_name"
+        ]
+      ],
+      "name": "Shop Name",
+      "slug": "shop_name",
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-10-23T05:29:31.463999Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

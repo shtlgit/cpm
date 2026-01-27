@@ -1,0 +1,241 @@
+{
+  "cache_invalidated_at": "2025-10-23T07:47:36.797217Z",
+  "description": null,
+  "archived": false,
+  "view_count": 82,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "hour_opened",
+      "lib/original-name": "hour_opened",
+      "name": "hour_opened",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "hour_opened",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "hour_opened",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 18,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 6.0,
+            "q1": 10.0,
+            "q3": 19.0,
+            "max": 23.0,
+            "sd": 5.338539126015656,
+            "avg": 14.5
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "check_quantity",
+      "lib/original-name": "check_quantity",
+      "name": "check_quantity",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "check_quantity",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "check_quantity",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 18,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 1.025,
+            "q1": 494.5870786516854,
+            "q3": 1163.3258426966293,
+            "max": 1388.0421348314608,
+            "sd": 468.7153372795572,
+            "avg": 814.8457190706504
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Количество чеков в час",
+  "last_query_start": "2025-12-23T08:00:05.800714Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:05.804478Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 698.4140625000000000,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-10-23T07:47:36.788678Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "shop_name": {
+          "id": "d56f07a8-cfc9-4f6b-a05b-5eafd5a65078",
+          "widget-type": "string/contains",
+          "dimension": [
+            "field",
+            54620,
+            null
+          ],
+          "display-name": "Shop Name",
+          "type": "dimension",
+          "name": "shop_name",
+          "options": {
+            "case-sensitive": false
+          }
+        },
+        "month_of_year": {
+          "widget-type": "string/=",
+          "display-name": "Month Of Year",
+          "type": "dimension",
+          "name": "month_of_year",
+          "id": "30259fe2-66ee-4647-a500-4d5243911c7f",
+          "dimension": [
+            "field",
+            54624,
+            null
+          ]
+        }
+      },
+      "query": "select hour_opened, sum(check_quantity)/count(distinct report_date) as check_quantity\nfrom replset.mv_service_time_by_receipts_detailed\nwhere {{month_of_year}} and \n\t{{shop_name}}\ngroup by hour_opened"
+    }
+  },
+  "id": 163,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "C3A3x8qp9VBW8PGDMy8dc",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-10-23T07:47:36.821708Z"
+  },
+  "visualization_settings": {
+    "graph.y_axis.title_text": "Количество чеков",
+    "graph.show_values": true,
+    "graph.series_order_dimension": null,
+    "graph.x_axis.axis_enabled": true,
+    "graph.x_axis.title_text": "час открытия чека",
+    "graph.metrics": [
+      "check_quantity"
+    ],
+    "graph.series_order": null,
+    "graph.x_axis.scale": "linear",
+    "graph.dimensions": [
+      "hour_opened"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [
+    {
+      "id": "d56f07a8-cfc9-4f6b-a05b-5eafd5a65078",
+      "type": "string/contains",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "shop_name"
+        ]
+      ],
+      "name": "Shop Name",
+      "slug": "shop_name",
+      "options": {
+        "case-sensitive": false
+      },
+      "isMultiSelect": true
+    },
+    {
+      "id": "30259fe2-66ee-4647-a500-4d5243911c7f",
+      "type": "string/=",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "month_of_year"
+        ]
+      ],
+      "name": "Month Of Year",
+      "slug": "month_of_year",
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-10-14T12:26:19.200147Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

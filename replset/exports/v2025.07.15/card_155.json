@@ -1,0 +1,419 @@
+{
+  "cache_invalidated_at": "2025-11-07T12:52:26.810334Z",
+  "description": null,
+  "archived": false,
+  "view_count": 161,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "varchar",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Магазин",
+      "lib/original-name": "Магазин",
+      "name": "Магазин",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Магазин",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Магазин",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 27,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 22.62962962962963
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Рост выручки YTD, %",
+      "lib/original-name": "Рост выручки YTD, %",
+      "name": "Рост выручки YTD, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Рост выручки YTD, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Рост выручки YTD, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 9,
+          "nil%": 0.7037037037037037
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 1.8148148148148149
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Отклонение от Бюджета, %",
+      "lib/original-name": "Отклонение от Бюджета, %",
+      "name": "Отклонение от Бюджета, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Отклонение от Бюджета, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Отклонение от Бюджета, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 23,
+          "nil%": 0.1851851851851852
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 4.925925925925926
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Рост транзакций YTD, %",
+      "lib/original-name": "Рост транзакций YTD, %",
+      "name": "Рост транзакций YTD, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Рост транзакций YTD, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Рост транзакций YTD, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 21,
+          "nil%": 0.2592592592592593
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 4.222222222222222
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Средний чек YTD, KZT",
+      "lib/original-name": "Средний чек YTD, KZT",
+      "name": "Средний чек YTD, KZT",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Средний чек YTD, KZT",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Средний чек YTD, KZT",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 23,
+          "nil%": 0.1481481481481481
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 5.962962962962963
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Средний Чек YTD, USD",
+      "lib/original-name": "Средний Чек YTD, USD",
+      "name": "Средний Чек YTD, USD",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Средний Чек YTD, USD",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Средний Чек YTD, USD",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 24,
+          "nil%": 0.1481481481481481
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 5.111111111111111
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Выручка,KZT",
+      "lib/original-name": "Выручка,KZT",
+      "name": "Выручка,KZT",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Выручка,KZT",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Выручка,KZT",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 24,
+          "nil%": 0.1481481481481481
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 11.11111111111111
+          }
+        }
+      },
+      "base_type": "type/Text"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Магазины, YTD",
+  "last_query_start": "2025-12-23T08:00:02.765096Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:02.774244Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 131.9444444444444444,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-11-07T12:52:26.799614Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "actual_date": {
+          "dimension": [
+            "field",
+            37152,
+            null
+          ],
+          "widget-type": "date/single",
+          "display-name": "Actual Date",
+          "type": "dimension",
+          "name": "actual_date",
+          "id": "5db3310e-fc27-4cff-ae27-6c5aceea30b5",
+          "default": null
+        }
+      },
+      "query": "select shop_name as \"Магазин\",\n TO_CHAR((sum(profit_year_to_date) -  sum(ytd_prev_year)) / sum(nullif(ytd_prev_year, 0)) * 100, 'FM990.00%') AS \"Рост выручки YTD, %\",\n TO_CHAR((sum(profit_year_to_date) - sum(ytd_budget)) / sum(ytd_budget) * 100, 'FM990.00%') AS \"Отклонение от Бюджета, %\",\n TO_CHAR((sum(ytd_receipts) - sum(ytd_receipts_prev_year)) / sum(ytd_receipts_prev_year) * 100, 'FM990.00%') AS \"Рост транзакций YTD, %\",\n REPLACE(REPLACE(REPLACE(TRIM(TO_CHAR(sum(profit_year_to_date)/(SUM(ytd_receipts)), '999G999G999G999')),'.', ' '),',',' '),' ', ' ') || ' ₸' AS \"Средний чек YTD, KZT\",\n REPLACE(REPLACE(REPLACE(TRIM(TO_CHAR(sum(profit_year_to_date_usd)/SUM(ytd_receipts), '999G999.99')),' ',' '),',',' '),' ',' ') || ' $' AS \"Средний Чек YTD, USD\",\n REPLACE(REPLACE(REPLACE(TRIM(TO_CHAR(sum(profit_year_to_date), '999G999G999G999')),'.', ' '),',', ' '),' ', ' ') || ' ₸' AS \"Выручка,KZT\"\nfrom replset.mv_combined_all_stores_data\nwhere {{actual_date}} \ngroup by shop_name\n"
+    }
+  },
+  "id": 155,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "table",
+  "archived_directly": false,
+  "entity_id": "Ep9XJI16nsz0l1sgULJ8u",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-11-07T12:52:26.833816Z"
+  },
+  "visualization_settings": {
+    "table.cell_column": "Рост транзакций YTD, %",
+    "table.columns": [
+      {
+        "name": "Магазин",
+        "enabled": true
+      },
+      {
+        "name": "Рост выручки YTD, %",
+        "enabled": true
+      },
+      {
+        "name": "Отклонение от Бюджета, %",
+        "enabled": true
+      },
+      {
+        "name": "Рост транзакций YTD, %",
+        "enabled": true
+      },
+      {
+        "name": "Средний чек YTD, KZT",
+        "enabled": true
+      },
+      {
+        "name": "Средний Чек YTD, USD",
+        "enabled": true
+      },
+      {
+        "name": "Выручка,KZT",
+        "enabled": true
+      }
+    ],
+    "table.pivot_column": "report_date",
+    "column_settings": {
+      "[\"name\",\"Рост выручки YTD, %\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Отклонение от Бюджета, %\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Рост транзакций YTD, %\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Средний чек YTD, KZT\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Средний Чек YTD, USD\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Выручка,KZT\"]": {
+        "text_align": "right",
+        "text_wrapping": true,
+        "column_title": "Выручка, KZT"
+      }
+    }
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.7 (89bfb56)",
+  "parameters": [
+    {
+      "id": "5db3310e-fc27-4cff-ae27-6c5aceea30b5",
+      "type": "date/single",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "actual_date"
+        ]
+      ],
+      "name": "Actual Date",
+      "slug": "actual_date",
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-10-04T11:17:43.219278Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

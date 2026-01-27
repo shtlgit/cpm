@@ -1,0 +1,180 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "varchar",
+      "semantic_type": null,
+      "lib/deduplicated-name": "shop_name",
+      "lib/original-name": "shop_name",
+      "name": "shop_name",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "shop_name",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "shop_name",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 29,
+          "nil%": 0.03448275862068966
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 22.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "square_efficiency",
+      "lib/original-name": "square_efficiency",
+      "name": "square_efficiency",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "square_efficiency",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "square_efficiency",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 24,
+          "nil%": 0.2068965517241379
+        },
+        "type": {
+          "type/Number": {
+            "min": 92605.69766216216,
+            "q1": 247287.188530622,
+            "q3": 478012.97037714464,
+            "max": 573443.65295,
+            "sd": 139756.9855314865,
+            "avg": 358942.7495636658
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Эффективность использования площадей по Магазинам",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:42.632497Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:42.632497Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "select shop_name, \nsum(month_profit) / sum(square) as square_efficiency\nFROM replset.mv_square_vs_profit_monthly_by_shop\ngroup by shop_name\n"
+    }
+  },
+  "id": 246,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "CbQt1hnTMj5wUykANscpO",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:42.728426Z"
+  },
+  "visualization_settings": {
+    "graph.show_goal": false,
+    "graph.show_values": true,
+    "graph.series_order_dimension": null,
+    "graph.label_value_frequency": "fit",
+    "graph.metrics": [
+      "square_efficiency"
+    ],
+    "graph.label_value_formatting": "full",
+    "graph.series_order": null,
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "shop_name"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:42.632497Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

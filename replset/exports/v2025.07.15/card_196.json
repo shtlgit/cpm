@@ -1,0 +1,211 @@
+{
+  "cache_invalidated_at": "2025-12-10T17:09:48.929036Z",
+  "description": null,
+  "archived": false,
+  "view_count": 57,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "account_code",
+      "lib/original-name": "account_code",
+      "name": "account_code",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "account_code",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "account_code",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 6,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 4.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "sum",
+      "lib/original-name": "sum",
+      "name": "sum",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "sum",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "sum",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 6,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": -3516006415.58,
+            "q1": 93887386.72,
+            "q3": 3030337824.05,
+            "max": 63282397974.55,
+            "sd": 25573038168.989292,
+            "avg": 11321999894.036667
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Ликвидность за месяц",
+  "last_query_start": "2025-12-23T08:00:03.133354Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:03.137152Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 42.3225806451612903,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-10T17:09:48.918443Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "month_of_year": {
+          "dimension": [
+            "field",
+            87746,
+            null
+          ],
+          "display-name": "Month Of Year",
+          "type": "dimension",
+          "name": "month_of_year",
+          "id": "f97e7a3a-d064-45cd-a1b1-1af19a4a1f9b",
+          "widget-type": "string/contains",
+          "options": {
+            "case-sensitive": false
+          }
+        }
+      },
+      "query": "select account_code, sum(balance_start_month)\nfrom  replset.mv_month_liquidity\nwhere {{month_of_year}} --ml.month_of_year = '04.2025'\ngroup by account_code\norder by account_code "
+    }
+  },
+  "id": 196,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "waterfall",
+  "archived_directly": false,
+  "entity_id": "z9KSXU3N3BJNX9uzdiG_y",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-12-10T17:09:48.953779Z"
+  },
+  "visualization_settings": {
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "account_code"
+    ],
+    "graph.x_axis.title_text": "Состав ликвидности",
+    "graph.y_axis.title_text": "Остатки на счетах",
+    "graph.y_axis.auto_range": true,
+    "graph.metrics": [
+      "sum"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [
+    {
+      "id": "f97e7a3a-d064-45cd-a1b1-1af19a4a1f9b",
+      "type": "string/contains",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "month_of_year"
+        ]
+      ],
+      "name": "Month Of Year",
+      "slug": "month_of_year",
+      "options": {
+        "case-sensitive": false
+      },
+      "isMultiSelect": false
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-12-03T16:39:18.129206Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

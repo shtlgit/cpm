@@ -1,0 +1,354 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "main_cat",
+      "lib/original-name": "main_cat",
+      "name": "main_cat",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "main_cat",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "main_cat",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 13,
+          "nil%": 0.07692307692307691
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 15.153846153846153
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Рост выручки YTD, %",
+      "lib/original-name": "Рост выручки YTD, %",
+      "name": "Рост выручки YTD, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Рост выручки YTD, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Рост выручки YTD, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.2307692307692308
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 6.076923076923077
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Рост выручки MTD, %",
+      "lib/original-name": "Рост выручки MTD, %",
+      "name": "Рост выручки MTD, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Рост выручки MTD, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Рост выручки MTD, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.2307692307692308
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 6.076923076923077
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Дневн Рост выручки, %",
+      "lib/original-name": "Дневн Рост выручки, %",
+      "name": "Дневн Рост выручки, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Дневн Рост выручки, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Дневн Рост выручки, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.2307692307692308
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 6.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Доля прибыли YTD, %",
+      "lib/original-name": "Доля прибыли YTD, %",
+      "name": "Доля прибыли YTD, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Доля прибыли YTD, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Доля прибыли YTD, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 12,
+          "nil%": 0.1538461538461538
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 4.615384615384615
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Доля прибыли MTD, %",
+      "lib/original-name": "Доля прибыли MTD, %",
+      "name": "Доля прибыли MTD, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Доля прибыли MTD, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Доля прибыли MTD, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 10,
+          "nil%": 0.2307692307692308
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 4.153846153846154
+          }
+        }
+      },
+      "base_type": "type/Text"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Категории товаров",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:41.413031Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:41.413031Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "\nselect p.main_cat,\n\t   TO_CHAR(\t   \n\t   (sum(p.profit_year_to_date)-\n\t   sum(p.ytd_prev_year)) /\n   \t   nullif(sum(p.ytd_prev_year),0)\n   \t   * 100, 'FM999 990.00%') AS \"Рост выручки YTD, %\",\n\t   TO_CHAR(\t   \n\t   (sum(p.profit_month_to_date) - \n\t   sum(p.mtd_prev_year)) /\n\t   nullif(sum(p.mtd_prev_year),0)\n\t    * 100, 'FM999 990.00%') AS \"Рост выручки MTD, %\",\n\t   TO_CHAR(\t   \n\t   (sum(p.day_profit) -\n\t   sum(p.day_profit_prev_year)) /\n\t   nullif(sum(p.day_profit_prev_year),0) \n   \t    * 100, 'FM999 990.00%') AS \"Дневн Рост выручки, %\",\n   \t    -- 1. Доля прибыли YTD (Year-to-Date)\n    TO_CHAR(\n        (SUM(p.profit_year_to_date) * 100.0) /\n        NULLIF(SUM(SUM(p.profit_year_to_date)) OVER (), 0),\n        'FM990.00%') AS \"Доля прибыли YTD, %\",\n    -- 2. Доля прибыли MTD (Month-to-Date)\n    TO_CHAR(\n        (SUM(p.profit_month_to_date) * 100.0) /\n        NULLIF(SUM(SUM(p.profit_month_to_date)) OVER (), 0),\n        'FM990.00%') AS \"Доля прибыли MTD, %\" \nfrom replset.mv_combined_all_stores_data p\nwhere report_date = '2025-10-10'\ngroup by p.report_date,\n\t   p.main_cat"
+    }
+  },
+  "id": 238,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "table",
+  "archived_directly": false,
+  "entity_id": "Ld69TOKcrzq8B9IQfKfb8",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:41.501505Z"
+  },
+  "visualization_settings": {
+    "table.pivot_column": "report_date",
+    "table.cell_column": "?column?",
+    "table.columns": [
+      {
+        "name": "report_date",
+        "enabled": true
+      },
+      {
+        "name": "main_cat",
+        "enabled": true
+      },
+      {
+        "name": "Рост выручки YTD, %",
+        "enabled": true
+      },
+      {
+        "name": "Рост выручки MTD, %",
+        "enabled": true
+      },
+      {
+        "name": "Дневн Рост выручки, %",
+        "enabled": true
+      },
+      {
+        "name": "Доля прибыли YTD, %",
+        "enabled": true
+      },
+      {
+        "name": "Доля прибыли MTD, %",
+        "enabled": true
+      }
+    ],
+    "column_settings": {
+      "[\"name\",\"report_date\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Рост выручки YTD, %\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Рост выручки MTD, %\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Дневн Рост выручки, %\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Доля прибыли YTD, %\"]": {
+        "text_align": "right"
+      },
+      "[\"name\",\"Доля прибыли MTD, %\"]": {
+        "text_align": "right"
+      }
+    }
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:41.413031Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

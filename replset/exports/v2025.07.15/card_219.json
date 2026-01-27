@@ -1,0 +1,162 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Количество транзакций",
+      "lib/original-name": "Количество транзакций",
+      "name": "Количество транзакций",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Количество транзакций",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Количество транзакций",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 1,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 9.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Количество транзакций, шт.",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:38.646178Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:38.646178Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "actual_date": {
+          "dimension": [
+            "field",
+            37152,
+            null
+          ],
+          "widget-type": "date/single",
+          "display-name": "Actual Date",
+          "type": "dimension",
+          "name": "actual_date",
+          "id": "88cc4a0b-2b47-4f7a-8c6f-ded913be52f4",
+          "default": null
+        }
+      },
+      "query": "select REPLACE(REPLACE(REPLACE(\n        TRIM(TO_CHAR(sum(daily_receipts), '999G999G999G999')), \n        '.', ' '), \n        ',', ' '), \n        ' ', ' ') || ' шт' AS \"Количество транзакций\"\nfrom replset.mv_combined_all_stores_data\nwhere {{actual_date}}\ngroup by report_date\n"
+    }
+  },
+  "id": 219,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "scalar",
+  "archived_directly": false,
+  "entity_id": "ymZmgB2pxzFiB6NqL9Jts",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:38.758368Z"
+  },
+  "visualization_settings": {
+    "table.cell_column": "Выручка, KZT"
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [
+    {
+      "id": "88cc4a0b-2b47-4f7a-8c6f-ded913be52f4",
+      "type": "date/single",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "actual_date"
+        ]
+      ],
+      "name": "Actual Date",
+      "slug": "actual_date",
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:38.646178Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

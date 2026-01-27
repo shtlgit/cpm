@@ -1,0 +1,176 @@
+{
+  "cache_invalidated_at": "2025-10-23T13:18:06.390052Z",
+  "description": null,
+  "archived": false,
+  "view_count": 55,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_year",
+      "lib/original-name": "month_year",
+      "name": "month_year",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_year",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "month_year",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 12,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 7.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "square_efficiency",
+      "lib/original-name": "square_efficiency",
+      "name": "square_efficiency",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "square_efficiency",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "square_efficiency",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 12,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 149997.54083588743,
+            "q1": 264939.06238785177,
+            "q3": 406361.20509055443,
+            "max": 424644.87777096685,
+            "sd": 97063.37974335953,
+            "avg": 333919.8988153618
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Эффективность использования площадей помесячно",
+  "last_query_start": "2025-12-21T08:18:05.432051Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-21T08:18:05.434926Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 44.1182795698924731,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-10-23T13:18:06.379212Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "select month_year, \nsum(month_profit) / sum(square) as square_efficiency\nFROM replset.mv_square_vs_profit_monthly_by_shop\n--when {{shop_name}}\ngroup by month_year\norder by month_year"
+    }
+  },
+  "id": 171,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "TL9jxa9YcjeaRNknzZ96f",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-10-23T13:18:06.408642Z"
+  },
+  "visualization_settings": {
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "month_year"
+    ],
+    "graph.show_goal": false,
+    "graph.show_values": true,
+    "graph.metrics": [
+      "square_efficiency"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-10-23T10:17:13.286146Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

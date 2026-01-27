@@ -1,0 +1,18 @@
+FROM postgres:17
+
+RUN apt-get update && \
+    apt-get install -y \
+    git \
+    build-essential \
+    libpq-dev \
+    freetds-dev \
+    unixodbc-dev \
+    postgresql-server-dev-17
+
+# Установка tds_fdw
+RUN mkdir -p /usr/src/tds_fdw && \
+    cd /usr/src/tds_fdw && \
+    git clone https://github.com/tds-fdw/tds_fdw.git . && \
+    make && \
+    make install
+

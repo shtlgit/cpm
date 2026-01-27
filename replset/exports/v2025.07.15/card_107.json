@@ -1,0 +1,213 @@
+{
+  "cache_invalidated_at": "2025-09-24T20:04:56.998853Z",
+  "description": null,
+  "archived": false,
+  "view_count": 106,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_year",
+      "lib/original-name": "month_year",
+      "name": "month_year",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_year",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "month_year",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 7.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_budget",
+      "lib/original-name": "month_budget",
+      "name": "month_budget",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_budget",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "month_budget",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 995503268.65,
+            "q1": 1260077428.363,
+            "q3": 1357405865.6490002,
+            "max": 1382754785.893,
+            "sd": 129771813.20078042,
+            "avg": 1266270299.109909
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_profit",
+      "lib/original-name": "month_profit",
+      "name": "month_profit",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_profit",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "month_profit",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 526136156,
+            "q1": 979453053.25,
+            "q3": 1482877237.875,
+            "max": 1.51843364E+9,
+            "sd": 362833945.2128669,
+            "avg": 1196615728.4154546
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Бюджет и Выручка помесячно",
+  "last_query_start": "2025-12-23T08:00:03.297104Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:03.300699Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 341.2297297297297297,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-09-24T20:04:56.988521Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "info": {
+      "card-entity-id": "rg6Lu6zXIGoUlJwFVmBjR"
+    },
+    "type": "native",
+    "database": 2,
+    "native": {
+      "query": "select b.month_year, b.month_budget, p.month_profit \nfrom ( \n\tselect to_char(b2.budget_date, 'MM.YYYY') as month_year,\n\t\tsum(b2.budget_value) as month_budget\n\tfrom replset.mv_everyday_budget_mtd_ytd_by_stores b2\n\twhere b2.budget_date > to_date('31.12.2024', 'DD.MM.YYYY')\n\tgroup by to_char(b2.budget_date, 'MM.YYYY')\n\t) b\nleft join ( \t\n\tselect to_char(p2.report_date, 'MM.YYYY') as month_year,\n\t\tsum(p2.day_profit) as month_profit\n    from replset.mv_everyday_profit_mtd_ytd_by_stores_cat p2\n    where p2.report_date >= date_trunc('year', CURRENT_DATE)\n    group by to_char(p2.report_date, 'MM.YYYY')\n) p\non b.month_year = p.month_year \norder by b.month_year ",
+      "template-tags": {}
+    }
+  },
+  "id": 107,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "combo",
+  "archived_directly": false,
+  "entity_id": "eGiCI6fD_YvKRArYg6dfV",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-09-24T20:04:57.018213Z"
+  },
+  "visualization_settings": {
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "month_year"
+    ],
+    "graph.metrics": [
+      "month_budget",
+      "month_profit"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.54.9 (e928f90)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-08-28T10:42:31.600854Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

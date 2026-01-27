@@ -1,0 +1,183 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_of_year",
+      "lib/original-name": "month_of_year",
+      "name": "month_of_year",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_of_year",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "month_of_year",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 7.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "liquidity_ratio",
+      "lib/original-name": "liquidity_ratio",
+      "name": "liquidity_ratio",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "liquidity_ratio",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "liquidity_ratio",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": -0.20644806023314333,
+            "q1": 8.505132979191673,
+            "q3": 16.669572565894192,
+            "max": 555.0436105542511,
+            "sd": 164.1801537285109,
+            "avg": 60.28163639094096
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Динамик Коэффициента Ликвидности",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:43.787708Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:43.787708Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "select a.month_of_year, a.assets / p.current_liabilities as liquidity_ratio\nfrom\n(select month_of_year, sum(balance_start_month) as assets\nfrom  replset.mv_month_liquidity ml\nwhere ml.account_code in ('1010', '1030', '1050', '1210', '1710')\ngroup by ml.month_of_year) a\nleft join (select ml.month_of_year, -sum(balance_start_month) as current_liabilities\nfrom replset.mv_month_liquidity ml\nwhere ml.account_code in ('3310')\ngroup by ml.month_of_year\n) p\non a.month_of_year = p.month_of_year \nwhere (date('01.'||a.month_of_year) >= DATE_TRUNC('year', CURRENT_DATE))\nAND\n(date('01.'||a.month_of_year) < DATE_TRUNC('year', CURRENT_DATE) + INTERVAL '1 year')\norder by a.month_of_year"
+    }
+  },
+  "id": 255,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "HlgJksdkhmXwORpQAEVii",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:43.878971Z"
+  },
+  "visualization_settings": {
+    "graph.y_axis.scale": "log",
+    "graph.show_goal": false,
+    "graph.show_values": true,
+    "graph.show_trendline": false,
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "month_of_year"
+    ],
+    "column_settings": {
+      "[\"name\",\"month_last_date\"]": {
+        "date_abbreviate": false
+      }
+    },
+    "graph.metrics": [
+      "liquidity_ratio"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:43.787708Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

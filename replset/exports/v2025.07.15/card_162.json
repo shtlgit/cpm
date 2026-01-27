@@ -1,0 +1,274 @@
+{
+  "cache_invalidated_at": "2025-10-23T07:31:22.91276Z",
+  "description": null,
+  "archived": false,
+  "view_count": 105,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "hour_opened",
+      "lib/original-name": "hour_opened",
+      "name": "hour_opened",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "hour_opened",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "hour_opened",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 18,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 6.0,
+            "q1": 10.0,
+            "q3": 19.0,
+            "max": 23.0,
+            "sd": 5.338539126015656,
+            "avg": 14.5
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "service_time",
+      "lib/original-name": "service_time",
+      "name": "service_time",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "service_time",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "service_time",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 18,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 20.78048780487805,
+            "q1": 38.254534774619295,
+            "q3": 43.87811688951674,
+            "max": 66.14220183486239,
+            "sd": 9.08105953641296,
+            "avg": 42.045633360661895
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "idle_time",
+      "lib/original-name": "idle_time",
+      "name": "idle_time",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "idle_time",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "idle_time",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 18,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 55.771015677647966,
+            "q1": 75.02763724569392,
+            "q3": 204.4377158772337,
+            "max": 24512.323439878233,
+            "sd": 5768.847012579461,
+            "avg": 2015.0334132060327
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Среднее время обслуживания и простоя кассы",
+  "last_query_start": "2025-12-23T08:00:04.693293Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:04.698008Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 592.2237762237762238,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-10-23T07:31:22.899034Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "month_of_year": {
+          "type": "dimension",
+          "name": "month_of_year",
+          "id": "65eba621-0141-4d5c-a61c-183a947d2a71",
+          "widget-type": "string/=",
+          "display-name": "Month Of Year",
+          "dimension": [
+            "field",
+            54624,
+            null
+          ]
+        },
+        "shop_name": {
+          "widget-type": "string/=",
+          "dimension": [
+            "field",
+            54620,
+            null
+          ],
+          "display-name": "Shop Name",
+          "name": "shop_name",
+          "id": "44100446-2737-43cc-98be-68c2e8d1e2aa",
+          "type": "dimension",
+          "default": null
+        }
+      },
+      "query": "select hour_opened, \n    sum(service_duration_seconds)/sum(check_quantity) as service_time, \n    sum(idle_time_seconds_after_check)/sum(check_quantity) as idle_time\nfrom replset.mv_service_time_by_receipts_detailed\nwhere {{month_of_year}} and \n\t{{shop_name}}\ngroup by hour_opened"
+    }
+  },
+  "id": 162,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "a0kvdpyFh04Iu6-aljDTi",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-10-23T07:31:22.939595Z"
+  },
+  "visualization_settings": {
+    "graph.show_values": true,
+    "graph.series_order_dimension": null,
+    "graph.x_axis.title_text": "Час открытия",
+    "graph.label_value_frequency": "all",
+    "graph.metrics": [
+      "service_time",
+      "idle_time"
+    ],
+    "graph.label_value_formatting": "full",
+    "graph.series_order": null,
+    "graph.y_axis.auto_range": true,
+    "graph.x_axis.scale": "linear",
+    "graph.dimensions": [
+      "hour_opened"
+    ],
+    "stackable.stack_type": "normalized"
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [
+    {
+      "id": "65eba621-0141-4d5c-a61c-183a947d2a71",
+      "type": "string/=",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "month_of_year"
+        ]
+      ],
+      "name": "Month Of Year",
+      "slug": "month_of_year",
+      "isMultiSelect": true
+    },
+    {
+      "id": "44100446-2737-43cc-98be-68c2e8d1e2aa",
+      "type": "string/=",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "shop_name"
+        ]
+      ],
+      "name": "Shop Name",
+      "slug": "shop_name",
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-10-14T12:22:13.06817Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

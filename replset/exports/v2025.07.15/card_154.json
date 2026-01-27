@@ -1,0 +1,128 @@
+{
+  "cache_invalidated_at": "2025-10-04T09:12:58.023641Z",
+  "description": null,
+  "archived": false,
+  "view_count": 175,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "date",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Дата обновления",
+      "lib/original-name": "Дата обновления",
+      "name": "Дата обновления",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Дата обновления",
+        {
+          "base-type": "type/Date"
+        }
+      ],
+      "effective_type": "type/Date",
+      "display_name": "Дата обновления",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 1,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/DateTime": {
+            "earliest": "2025-12-20",
+            "latest": "2025-12-20"
+          }
+        }
+      },
+      "base_type": "type/Date"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Актуальная Дата в БД",
+  "last_query_start": "2025-12-23T12:34:36.529054Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T12:34:37.159802Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 136.5480769230769231,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-10-04T09:12:58.014435Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "select max(kpi.report_date) as \"Дата обновления\"\nfrom replset.mv_combined_all_stores_data kpi\nwhere not kpi.day_profit is null"
+    }
+  },
+  "id": 154,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "scalar",
+  "archived_directly": false,
+  "entity_id": "CQmfzFpm04onKIAgrvCNC",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-10-04T09:12:58.038234Z"
+  },
+  "visualization_settings": {},
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.7 (89bfb56)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-10-04T09:10:17.886063Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

@@ -1,0 +1,176 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": "type/Company",
+      "lib/deduplicated-name": "vendor_name",
+      "lib/original-name": "vendor_name",
+      "name": "vendor_name",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "vendor_name",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "vendor_name",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 103,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 23.21359223300971
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": "type/GrossMargin",
+      "lib/deduplicated-name": "total_new_margin_amount",
+      "lib/original-name": "total_new_margin_amount",
+      "name": "total_new_margin_amount",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "total_new_margin_amount",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "total_new_margin_amount",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 103,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": -10521.0,
+            "q1": 53755.76527777778,
+            "q3": 970931.345,
+            "max": 20572465.1126,
+            "sd": 2432245.8385457345,
+            "avg": 1034883.7190887379
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Промо: Маржа по Вендорам (текущий год)",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:43.539511Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:43.539511Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "select vendor_name, \n\tsum(total_new_margin_amount) as total_new_margin_amount\nfrom replset.mvw_promo_analytics\nwhere date_begin > DATE_TRUNC('year', CURRENT_DATE)\nGROUP BY vendor_name\norder by 2 desc;"
+    }
+  },
+  "id": 253,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "row",
+  "archived_directly": false,
+  "entity_id": "v_0QLrvuz1wJOQMX8Ox7y",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:43.636822Z"
+  },
+  "visualization_settings": {
+    "graph.show_values": true,
+    "graph.x_axis.title_text": "Вендор",
+    "graph.y_axis.title_text": "Объем продаж по акциям",
+    "graph.dimensions": [
+      "vendor_name"
+    ],
+    "graph.metrics": [
+      "total_new_margin_amount"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:43.539511Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

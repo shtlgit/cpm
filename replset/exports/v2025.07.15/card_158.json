@@ -1,0 +1,162 @@
+{
+  "cache_invalidated_at": "2025-10-14T14:56:35.259283Z",
+  "description": null,
+  "archived": false,
+  "view_count": 218,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "Рост выручки за день, %",
+      "lib/original-name": "Рост выручки за день, %",
+      "name": "Рост выручки за день, %",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "Рост выручки за день, %",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "Рост выручки за день, %",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 1,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 7.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Дневн Рост Выручки, %",
+  "last_query_start": "2025-12-23T12:34:36.686285Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T12:34:37.159802Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 150.2510288065843621,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-10-14T14:56:35.22988Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {
+        "actual_date": {
+          "dimension": [
+            "field",
+            37152,
+            null
+          ],
+          "widget-type": "date/single",
+          "display-name": "Actual Date",
+          "id": "e56359cd-ee61-447a-83a0-912bddb15dc6",
+          "type": "dimension",
+          "name": "actual_date",
+          "default": null
+        }
+      },
+      "query": "select TO_CHAR((sum(day_profit) -  sum(day_profit_prev_year)) / sum(nullif(day_profit_prev_year, 0)) * 100, 'FM990.00%') AS \"Рост выручки за день, %\"\nfrom replset.mv_combined_all_stores_data\nwhere {{actual_date}}\n--c.report_date = '2025-10-10'::date\ngroup by report_date"
+    }
+  },
+  "id": 158,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "scalar",
+  "archived_directly": false,
+  "entity_id": "gb-yonPx15-EEXmQL2KjZ",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-10-14T14:56:35.306867Z"
+  },
+  "visualization_settings": {
+    "table.pivot_column": "Рост выручки YTD, %"
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [
+    {
+      "id": "e56359cd-ee61-447a-83a0-912bddb15dc6",
+      "type": "date/single",
+      "target": [
+        "dimension",
+        [
+          "template-tag",
+          "actual_date"
+        ]
+      ],
+      "name": "Actual Date",
+      "slug": "actual_date",
+      "isMultiSelect": true
+    }
+  ],
+  "dashboard_id": 6,
+  "created_at": "2025-10-09T06:08:31.525431Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

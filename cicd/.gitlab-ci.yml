@@ -1,0 +1,58 @@
+stages:
+  - export
+  - release
+  - deploy
+
+variables:
+  GIT_STRATEGY: fetch
+  GIT_DEPTH: 3
+
+# 1. Экспорт объектов с тестовой среды
+export_metabase:
+  stage: export
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache bash curl jq postgresql-client git
+  script:
+    - chmod +x ./export_metabase.sh
+    - ./export_metabase.sh
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  only:
+    - main
+
+# 2. Публикация релиза в GitLab Releases
+create_release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  script:
+    - echo "📦 Публикуем релиз Metabase"
+  release:
+    tag_name: "v$(date +'%Y.%m.%d-%H%M')"
+    description: "Metabase release from CI pipeline"
+    assets:
+      links:
+        - name: "Metabase Package"
+          url: "https://gitlab.com/${CI_PROJECT_PATH}/-/jobs/${CI_JOB_ID}/artifacts/download"
+  dependencies:
+    - export_metabase
+  only:
+    - main
+
+# 3. Автодеплой (опционально, если доступ к PROD есть)
+deploy_metabase:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache bash curl jq postgresql-client
+  script:
+    - chmod +x ./deploy.sh
+    - ./deploy.sh
+  environment:
+    name: production
+    url: http://prod-metabase.company.local:3000
+  when: manual
+  only:
+    - main

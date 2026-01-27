@@ -1,0 +1,115 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: dockerfile.tds
+    image: fmbi-postgres-tds
+    container_name: fmbipostgres
+    restart: always
+    networks:
+      - reports_net
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "FMbi12345678~"
+      POSTGRES_DB: postgres
+      TZ: "Asia/Aqtobe"
+    ports:
+      - "5432:5432"
+    volumes:
+      - /mnt/data/postgres_data:/var/lib/postgresql/data 
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - reports_net
+    ports:
+      - "3000:3000"
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: fmbidb
+      MB_DB_PORT: 5432
+      MB_DB_USER: fmbidb
+      MB_DB_PASS: "qwe12345678~"
+      MB_DB_HOST: db
+      TZ: "Asia/Aqtobe"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+  selenoid:
+    image: aerokube/selenoid:1.11.3
+    container_name: selenoid
+    restart: always
+    networks:
+      - reports_net
+    ports:
+      - "4444:4444"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./browsers.json:/etc/selenoid/browsers.json:ro"
+      - "./video:/opt/selenoid/video"
+      - "./logs:/opt/selenoid/logs"
+    command: >
+      -conf /etc/selenoid/browsers.json
+      -limit 5
+      -video-output-dir /opt/selenoid/video
+      -service-startup-timeout 2m
+      -container-network reports_net
+
+  selenoid-ui:
+    image: aerokube/selenoid-ui:latest
+    container_name: selenoid-ui
+    restart: always
+    networks:
+      - reports_net
+    ports:
+      - "8091:8080" # Внешний порт 8091
+    command: ["--selenoid-uri", "http://selenoid:4444"]
+
+  dash-exporter:
+    build: 
+      context: ./dash-exporter
+    container_name: dash-exporter
+    restart: always
+    depends_on:
+      - metabase
+      - selenoid
+    networks:
+      - reports_net
+    ports:
+      - "3010:3010"
+    environment:
+      - SELENOID_URL=http://selenoid:4444
+      # 2. Флаг отладки для Playwright
+      - DEBUG=pw:browser*
+      - METABASE_INTERNAL_URL=http://metabase:3000
+      - MB_USER=fmbidb@fermag.kz
+      - MB_PASS=qwe12345678~
+      - SCHEDULED_DASHBOARDS=15,22
+      - TZ=Asia/Aqtobe
+      - TELEGRAM_BOT_TOKEN=8424599785:AAGQODTux4AOF6sSgE80QsdD5BoEr3JRiTE
+      - TELEGRAM_CHAT_ID=-1003283295838
+      - SMTP_HOST=mail.hosting.reg.ru
+      - SMTP_PORT=465
+      - SMTP_USER=fmbidbtest@fermag.kz
+      - SMTP_PASS=bN7fT7pZ1wxA0aQ0
+      - EMAIL_TO=1@mergifai.com
+    volumes:
+      - ./exports:/app/exports
+      - ./dslogs:/app/logs
+      - ./dash-exporter/schedules.json:/app/schedules.json
+      - /etc/localtime:/etc/localtime:ro
+
+networks:
+  reports_net:
+    driver: bridge
+    name: reports_net 
+
+volumes:
+  postgres_data:

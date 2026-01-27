@@ -1,0 +1,239 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 39,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "promo_name",
+      "lib/original-name": "promo_name",
+      "name": "promo_name",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "promo_name",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "promo_name",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 246,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 77.5691056910569
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "net_promo_profit",
+      "lib/original-name": "net_promo_profit",
+      "name": "net_promo_profit",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "net_promo_profit",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "net_promo_profit",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 213,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": -321927.412,
+            "q1": -110.2044222648048,
+            "q3": 2830.2262403232553,
+            "max": 42267.0,
+            "sd": 28731.101604131476,
+            "avg": -1075.3605934959353
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": "type/GrossMargin",
+      "lib/deduplicated-name": "avg_margin_change",
+      "lib/original-name": "avg_margin_change",
+      "name": "avg_margin_change",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "avg_margin_change",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "avg_margin_change",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 164,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": -0.2672658968050734,
+            "q1": -0.03595527097152994,
+            "q3": 0.04230537681352544,
+            "max": 0.2244198043018115,
+            "sd": 0.084157538651282,
+            "avg": 0.000517477690285338
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": "type/Discount",
+      "lib/deduplicated-name": "avg_discount",
+      "lib/original-name": "avg_discount",
+      "name": "avg_discount",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "avg_discount",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "avg_discount",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 28,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 0.0,
+            "q1": 10.519554874436247,
+            "q3": 25.17786528040668,
+            "max": 50.0,
+            "sd": 10.692359135656034,
+            "avg": 19.37642276422764
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Промо: Расчет чистого эффекта",
+  "last_query_start": "2025-12-21T08:18:02.384971Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-22T18:05:51.278505Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 90.2222222222222222,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-11-09T17:53:50.558553Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "SELECT promo_name,\n       sum(total_new_margin_amount) - sum(purchase_compensation) AS net_promo_profit,\n       avg(new_margin - old_margin) AS avg_margin_change,\n       avg(discount) AS avg_discount\nFROM replset.mvw_promo_analytics\nwhere date_begin > DATE_TRUNC('month', CURRENT_DATE)\nGROUP BY promo_name\nORDER BY net_promo_profit DESC;"
+    }
+  },
+  "id": 181,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "table",
+  "archived_directly": false,
+  "entity_id": "aX1TDs8VqXWZr1pAsoIyE",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-11-09T17:53:51.010156Z"
+  },
+  "visualization_settings": {
+    "table.pivot_column": "promo_name",
+    "table.cell_column": "net_promo_profit"
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-11-09T17:53:50.558553Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

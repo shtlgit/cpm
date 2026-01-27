@@ -1,0 +1,32 @@
+services:
+  crewai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crewai
+    working_dir: /app
+    volumes:
+      - "C:/Users/shukh/OneDrive/Документы/1 Projects/CrewAI/app:/app"
+    environment:
+      - UV_SYSTEM_PYTHON=1
+      - PYTHONUNBUFFERED=1
+      - PG_HOST=stlpgs
+      - PG_PORT=5432
+      - PG_USER=fmbidb
+      - PG_PASS=qweASD1234567~
+      - PG_DB=fmbidb
+      - MB_HOST=metabase
+      - MB_PORT=3000
+      - NC_HOST=nocodb-postgres
+      - NC_PORT=8080
+    tty: true
+    stdin_open: true
+    command: bash
+    networks:
+      - biznet
+    ports:
+      - "8088:8088"
+
+networks:
+  biznet:
+    external: true

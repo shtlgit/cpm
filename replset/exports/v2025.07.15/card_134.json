@@ -1,0 +1,209 @@
+{
+  "cache_invalidated_at": "2025-11-09T20:01:01.017004Z",
+  "description": null,
+  "archived": false,
+  "view_count": 70,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_year",
+      "lib/original-name": "month_year",
+      "name": "month_year",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_year",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "month_year",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 12,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 7.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "main_cat",
+      "lib/original-name": "main_cat",
+      "name": "main_cat",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "main_cat",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "main_cat",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 12,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 16.416666666666668
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_profit",
+      "lib/original-name": "month_profit",
+      "name": "month_profit",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_profit",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "month_profit",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 125,
+          "nil%": 0.1388888888888889
+        },
+        "type": {
+          "type/Number": {
+            "min": 11480.0,
+            "q1": 9569887.842265029,
+            "q3": 199421623,
+            "max": 421098768,
+            "sd": 131475452.22664857,
+            "avg": 116503618.91588709
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Выручка помесячно по категориям",
+  "last_query_start": "2025-12-23T08:00:04.401179Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:04.40477Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 120.5714285714285714,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-11-09T20:01:01.004159Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "\tselect to_char(p2.report_date, 'MM.YYYY') as month_year,\n\t    p2.main_cat,\n\t\tsum(p2.day_profit) as month_profit\n    from replset.mv_combined_all_stores_data p2\n    where p2.report_date >= date_trunc('year', CURRENT_DATE) and not p2.main_cat  is null\n    group by to_char(p2.report_date, 'MM.YYYY'), p2.main_cat\n    order by month_year, main_cat"
+    }
+  },
+  "id": 134,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "hxyd3aZTPNjqe2OFb9g78",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-11-09T20:01:01.044013Z"
+  },
+  "visualization_settings": {
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "month_year",
+      "main_cat"
+    ],
+    "graph.metrics": [
+      "month_profit"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.4 (aeaacd0)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-09-24T20:29:37.026175Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

@@ -1,0 +1,214 @@
+{
+  "cache_invalidated_at": "2025-09-24T20:16:47.419095Z",
+  "description": null,
+  "archived": false,
+  "view_count": 105,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_year",
+      "lib/original-name": "month_year",
+      "name": "month_year",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_year",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "month_year",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 11,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 7.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "varchar",
+      "semantic_type": null,
+      "lib/deduplicated-name": "shop_name",
+      "lib/original-name": "shop_name",
+      "name": "shop_name",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "shop_name",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "shop_name",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 25,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 22.84
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_deviation",
+      "lib/original-name": "month_deviation",
+      "name": "month_deviation",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_deviation",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "month_deviation",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 212,
+          "nil%": 0.2327272727272727
+        },
+        "type": {
+          "type/Number": {
+            "min": -88.50453548387097,
+            "q1": 1.8461259005873987,
+            "q3": 21.72818567745422,
+            "max": 89.37604374377634,
+            "sd": 23.106907935942175,
+            "avg": 11.053595259175175
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_login": "2025-12-16T13:33:43.144164Z",
+    "is_qbnewb": false,
+    "is_superuser": true,
+    "id": 6,
+    "last_name": "Олуев",
+    "tenant_id": null,
+    "date_joined": "2025-07-29T10:43:16.303003Z",
+    "common_name": "Булат Олуев"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Отклонение от бюджета по магазинам",
+  "last_query_start": "2025-12-23T08:00:03.76501Z",
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T08:00:03.76849Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": 277.8904109589041096,
+  "creator_id": 6,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-09-24T20:16:47.410154Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "info": {
+      "card-entity-id": "naO0CnR_3wYfc_aeBX5WG"
+    },
+    "type": "native",
+    "database": 2,
+    "native": {
+      "query": "select b.month_year, b.shop_name, (p.month_profit - b.month_budget) / b.month_budget * 100 as month_deviation \nfrom ( \n\tselect to_char(b2.budget_date, 'MM.YYYY') as month_year,\n\t\tb2.shop_name,\n\t\tsum(b2.budget_value) as month_budget\n\tfrom replset.mv_everyday_budget_mtd_ytd_by_stores b2\n\twhere b2.budget_date > to_date('31.12.2024', 'DD.MM.YYYY')\n\tgroup by to_char(b2.budget_date, 'MM.YYYY'), b2.shop_name\n\t) b\nleft join ( \t\n\tselect p.month_year, p.shop_name, p.month_profit\n\tfrom ( \n\t\tselect to_char(p2.report_date, 'MM.YYYY') as month_year,\n\t\t\tp2.shop_name,\n\t\t\tsum(p2.day_profit) as month_profit\n\t\tfrom replset.mv_everyday_profit_mtd_ytd_by_stores_cat p2\n\t\tgroup by to_char(p2.report_date, 'MM.YYYY'), p2.shop_name\n\t\t) p\n\t) p\non b.month_year = p.month_year and b.shop_name = p.shop_name \norder by b.month_year ",
+      "template-tags": {}
+    }
+  },
+  "id": 108,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "vmI-Vcb-DKscs2_74BaKw",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 6,
+    "email": "b.d.oluev@gmail.com",
+    "first_name": "Булат",
+    "last_name": "Олуев",
+    "timestamp": "2025-09-24T20:16:47.435Z"
+  },
+  "visualization_settings": {
+    "graph.dimensions": [
+      "month_year",
+      "shop_name"
+    ],
+    "graph.series_order_dimension": null,
+    "graph.series_order": null,
+    "graph.x_axis.scale": "ordinal",
+    "graph.metrics": [
+      "month_deviation"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.54.9 (e928f90)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-08-28T11:06:47.591959Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

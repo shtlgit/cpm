@@ -1,0 +1,247 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "numeric",
+      "semantic_type": "type/Discount",
+      "lib/deduplicated-name": "discount",
+      "lib/original-name": "discount",
+      "name": "discount",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "discount",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "discount",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 25,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 0.0,
+            "q1": 10.82289315779938,
+            "q3": 25.465247584249852,
+            "max": 50.0,
+            "sd": 11.530922124780542,
+            "avg": 20.356985294117646
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "sold_qty",
+      "lib/original-name": "sold_qty",
+      "name": "sold_qty",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "sold_qty",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "sold_qty",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 113,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 0.0,
+            "q1": 3.660565743052865,
+            "q3": 57.05946694896802,
+            "max": 843.0,
+            "sd": 107.1055559292068,
+            "avg": 56.2155
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    },
+    {
+      "database_type": "text",
+      "semantic_type": "type/Company",
+      "lib/deduplicated-name": "vendor_name",
+      "lib/original-name": "vendor_name",
+      "name": "vendor_name",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "vendor_name",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "vendor_name",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 26,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 25.084558823529413
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": "type/GrossMargin",
+      "lib/deduplicated-name": "total_new_margin_amount",
+      "lib/original-name": "total_new_margin_amount",
+      "name": "total_new_margin_amount",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "total_new_margin_amount",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "total_new_margin_amount",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 232,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": -20485.0,
+            "q1": 896.9977297523228,
+            "q3": 8075.863868867988,
+            "max": 66353.4,
+            "sd": 10375.837438293853,
+            "avg": 6779.205815073529
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Промо: Продажи vs Скидка",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:43.054248Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:43.054248Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "database": 2,
+    "type": "native",
+    "native": {
+      "template-tags": {},
+      "query": "select discount, sold_qty, vendor_name, total_new_margin_amount\nfrom replset.mvw_promo_analytics\nwhere date_begin > DATE_TRUNC('month', CURRENT_DATE)\n"
+    }
+  },
+  "id": 249,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "scatter",
+  "archived_directly": false,
+  "entity_id": "zSaHuGAE8O6UvO9pzCieC",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:43.136614Z"
+  },
+  "visualization_settings": {
+    "scatter.bubble": "total_new_margin_amount",
+    "graph.dimensions": [
+      "discount"
+    ],
+    "graph.series_order_dimension": null,
+    "graph.series_order": null,
+    "graph.x_axis.scale": "linear",
+    "graph.metrics": [
+      "sold_qty"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:43.054248Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}

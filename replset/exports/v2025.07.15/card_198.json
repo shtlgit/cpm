@@ -1,0 +1,181 @@
+{
+  "cache_invalidated_at": null,
+  "description": null,
+  "archived": false,
+  "view_count": 0,
+  "collection_position": null,
+  "source_card_id": null,
+  "table_id": null,
+  "can_run_adhoc_query": true,
+  "result_metadata": [
+    {
+      "database_type": "text",
+      "semantic_type": null,
+      "lib/deduplicated-name": "month_year",
+      "lib/original-name": "month_year",
+      "name": "month_year",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "month_year",
+        {
+          "base-type": "type/Text"
+        }
+      ],
+      "effective_type": "type/Text",
+      "display_name": "month_year",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 12,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Text": {
+            "percent-json": 0.0,
+            "percent-url": 0.0,
+            "percent-email": 0.0,
+            "percent-state": 0.0,
+            "average-length": 7.0
+          }
+        }
+      },
+      "base_type": "type/Text"
+    },
+    {
+      "database_type": "numeric",
+      "semantic_type": null,
+      "lib/deduplicated-name": "day_profit",
+      "lib/original-name": "day_profit",
+      "name": "day_profit",
+      "lib/source": "source/native",
+      "source": "native",
+      "field_ref": [
+        "field",
+        "day_profit",
+        {
+          "base-type": "type/Decimal"
+        }
+      ],
+      "effective_type": "type/Decimal",
+      "display_name": "day_profit",
+      "fingerprint": {
+        "global": {
+          "distinct-count": 12,
+          "nil%": 0.0
+        },
+        "type": {
+          "type/Number": {
+            "min": 526136156,
+            "q1": 990415035.5,
+            "q3": 1478639409.75,
+            "max": 1.51843364E+9,
+            "sd": 346860273.41634476,
+            "avg": 1203870728.7975
+          }
+        }
+      },
+      "base_type": "type/Decimal"
+    }
+  ],
+  "creator": {
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_login": "2025-12-24T05:48:40.824424Z",
+    "is_qbnewb": true,
+    "is_superuser": false,
+    "id": 10,
+    "last_name": "User",
+    "tenant_id": null,
+    "date_joined": "2025-12-23T12:25:01.375952Z",
+    "common_name": "System User"
+  },
+  "initially_published_at": null,
+  "can_write": true,
+  "card_schema": 22,
+  "database_id": 2,
+  "enable_embedding": false,
+  "collection_id": 5,
+  "query_type": "native",
+  "name": "Выручка помесячно",
+  "last_query_start": null,
+  "dashboard_count": 1,
+  "last_used_at": "2025-12-23T18:06:35.222678Z",
+  "dashboard": {
+    "name": "Дашборд Первого Руководителя",
+    "id": 6,
+    "moderation_status": null
+  },
+  "type": "question",
+  "average_query_time": null,
+  "creator_id": 10,
+  "can_restore": false,
+  "moderation_reviews": [],
+  "updated_at": "2025-12-23T18:06:35.222678Z",
+  "made_public_by_id": null,
+  "embedding_params": null,
+  "cache_ttl": null,
+  "dataset_query": {
+    "info": {
+      "card-entity-id": "KViiQs0TTc_rAKsNn3zUk"
+    },
+    "type": "native",
+    "database": 2,
+    "native": {
+      "query": "select to_char(p2.report_date, 'MM.YYYY') as month_year,\n\tsum(p2.day_profit) as day_profit\n\t--,\n--\tsum(p2.day_profit_usd) as day_profit_usd,\n--\tsum(p2.profit_month_to_date) as profit_mtd,\n--\tsum(p2.profit_month_to_date_usd) as profit_mtd_usd,\n--\tsum(p2.profit_year_to_date) as profit_ytd,\n--\tsum(p2.profit_year_to_date_usd) as profit_ytd_usd\nfrom replset.mv_everyday_profit_mtd_ytd_by_stores_cat p2\nwhere p2.report_date >= date_trunc('year', CURRENT_DATE)\ngroup by to_char(p2.report_date, 'MM.YYYY')\norder by to_char(p2.report_date, 'MM.YYYY')",
+      "template-tags": {}
+    }
+  },
+  "id": 198,
+  "parameter_mappings": [],
+  "can_manage_db": false,
+  "display": "bar",
+  "archived_directly": false,
+  "entity_id": "EITyI1TAMGkrgZyJFN5ed",
+  "collection_preview": true,
+  "last-edit-info": {
+    "id": 10,
+    "email": "fmbidb@fermag.kz",
+    "first_name": "System",
+    "last_name": "User",
+    "timestamp": "2025-12-23T18:06:35.681779Z"
+  },
+  "visualization_settings": {
+    "graph.x_axis.scale": "ordinal",
+    "graph.dimensions": [
+      "month_year"
+    ],
+    "graph.show_goal": false,
+    "graph.show_values": true,
+    "graph.series_order_dimension": null,
+    "graph.series_order": null,
+    "graph.metrics": [
+      "day_profit"
+    ]
+  },
+  "collection": {
+    "authority_level": null,
+    "description": null,
+    "archived": false,
+    "slug": "fermag_finrep",
+    "archive_operation_id": null,
+    "name": "Fermag FinRep",
+    "personal_owner_id": null,
+    "type": null,
+    "is_sample": false,
+    "id": 5,
+    "archived_directly": null,
+    "entity_id": "_PuNBxa9sxDgyE9Nvt3B4",
+    "location": "/",
+    "namespace": null,
+    "is_personal": false,
+    "created_at": "2025-04-23T17:28:02.849607Z"
+  },
+  "metabase_version": "v0.56.8 (da08112)",
+  "parameters": [],
+  "dashboard_id": 6,
+  "created_at": "2025-12-23T18:06:35.222678Z",
+  "parameter_usage_count": 0,
+  "public_uuid": null,
+  "can_delete": false
+}
